@@ -1,0 +1,72 @@
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
+
+# Trigger only a build when tagging the commit with 'build_this_commit'
+trigger:
+  branches:
+    include:
+      - master
+  tags:
+    include:
+      - build_this_commit
+  paths:
+    exclude:
+      - /*
+
+
+# https://crontab.guru/#5_0_*_*_*
+schedules:
+- cron: "5 0 * * *"
+  displayName: At 00:05 every night
+  branches:
+    include:
+      - master
+  always: true
+
+
+variables:
+  - name: workingDirectoryFolder
+    value: $(System.DefaultWorkingDirectory)
+
+stages:
+- stage: Continuous_Integration
+  displayName: Continuous Integration
+  pool:
+     vmImage: ubuntu-latest
+  jobs:
+  - job: BuildPush
+    displayName: Build and push
+    steps:
+
+    - task: Docker@2
+      displayName: Login to ACR
+      inputs:
+        command: login
+        containerRegistry: geircodeacr-geircode
+
+    - task: Docker@2
+      displayName: Build filecontainer
+      inputs:
+        command: buildAndPush
+        containerRegistry: geircodeacr-geircode
+        repository: 'geircode/learning-dapr-filecontainer'
+        Dockerfile: '$(workingDirectoryFolder)/filecontainer/Dockerfile'
+        tags: 'latest'
+
+    - task: Docker@2
+      displayName: Build base
+      inputs:
+        command: buildAndPush
+        containerRegistry: geircodeacr-geircode
+        repository: 'geircode/learning-dapr-base'
+        Dockerfile: '$(workingDirectoryFolder)/Dockerfile.base'
+        tags: 'latest'
+
+    - task: Docker@2
+      displayName: Build main
+      inputs:
+        command: buildAndPush
+        containerRegistry: geircodeacr-geircode
+        repository: 'geircode/learning-dapr'
+        Dockerfile: '$(workingDirectoryFolder)/Dockerfile'
+        tags: 'latest'

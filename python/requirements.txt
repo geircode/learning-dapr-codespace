@@ -1,0 +1,14 @@
+behave
+requests
+hvac
+python-consul
+pydash
+pytest-xdist
+xmltodict
+PyHamcrest
+pytest
+flask
+O365
+pyyaml
+typer
+slackclient

@@ -1,0 +1,59 @@
+{
+  "python.formatting.provider": "yapf",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true
+  },
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceRoot}",
+    "PYTHON_PYTHONPATH": ".venv\\Scripts\\python.exe",
+  },
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceRoot}",
+  },
+  // This tells VSCode to search for a local virtual Python installation in the ".venv" directory
+  // The value "PYTHON_INSTALL_LOC" must be set in Windows Environment / miljøvariabler
+  "python.pythonPath": "/usr/local/bin/python",
+  "python.autoComplete.extraPaths": [
+    // Enables Intellisense. Tells Visual Studio Code IDE where to find the Python code.
+    // Must also be set in the .env file.
+    "${workspaceFolder}/",
+    ".venv",
+    ".venv/Lib",
+    "${workspaceFolder}/.venv",
+    "${workspaceFolder}/.venv/Lib",
+  ],
+  "python.jediEnabled": true,
+  "python.testing.pytestEnabled": true,
+  // Remove "-s" when you want to capture output for each test and to be shown together with the running test
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "python.testing.unittestArgs": [
+    "-v",
+    "-s",
+    "./tests",
+    "-p",
+    "test*.py"
+  ],
+  // Freak config. In order to run just one test each time, we need to set "python.testing.unittestEnabled": true" and this to "pytest".
+  // Test Explorer can not find tests in subdirectories if Unittest is used.
+  "pythonTestExplorer.testFramework": "pytest",
+  "testExplorer.codeLens": true,
+  "editor.codeLens": true,
+  "python.languageServer": "Jedi",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/",
+    ".venv",
+    ".venv/Lib",
+    "${workspaceFolder}/.venv",
+    "${workspaceFolder}/.venv/Lib"
+  ],
+}

@@ -1,0 +1,21 @@
+{
+    "python.formatting.provider": "yapf",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/__pycache__": true
+      },
+      "files.associations": {
+        "Dockerfile.base": "dockerfile"
+    },
+    "remote.containers.copyGitConfig": true,
+      // "terminal.integrated.env.windows": {
+      //   "PYTHONPATH":"${workspaceRoot}/python"
+      // },
+      // "terminal.integrated.env.linux": {
+      //   "PYTHONPATH":"${workspaceRoot}/python"
+      // }      
+}
