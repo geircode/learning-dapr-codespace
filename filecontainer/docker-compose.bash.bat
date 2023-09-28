@@ -1,1 +1,1 @@
-docker exec -it learning-dapr-filecontainer-1 /bin/sh
+docker exec -it learning-dapr-codespace-filecontainer-1 /bin/sh

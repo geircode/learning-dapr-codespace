@@ -1,8 +1,8 @@
 version: '3.9'
 
 services:
-  learning-dapr-1:
-    image: geircodeacr.azurecr.io/learning-dapr:latest
+  learning-dapr-codespace:
+    image: geircodeacr.azurecr.io/learning-dapr-codespace:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,7 +10,7 @@ services:
         GITHUB_TOKEN: ${GITHUB_TOKEN}      
         GEIRCODE_AZURE_DEVOPS_TOKEN: ${GEIRCODE_AZURE_DEVOPS_TOKEN}
     restart: always
-    container_name: learning-dapr-1
+    container_name: learning-dapr-codespace-1
     # Update: It's now possible to set DNS in Docker Desktop
     # dns: # "az login" workaround for the gnarly bug: https://github.com/microsoft/WSL/issues/4285
     #   - 8.8.8.8    

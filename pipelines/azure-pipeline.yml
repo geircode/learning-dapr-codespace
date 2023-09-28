@@ -49,7 +49,7 @@ stages:
       inputs:
         command: buildAndPush
         containerRegistry: geircodeacr-geircode
-        repository: 'geircode/learning-dapr-filecontainer'
+        repository: 'geircode/learning-dapr-codespace-filecontainer'
         Dockerfile: '$(workingDirectoryFolder)/filecontainer/Dockerfile'
         tags: 'latest'
 
@@ -58,7 +58,7 @@ stages:
       inputs:
         command: buildAndPush
         containerRegistry: geircodeacr-geircode
-        repository: 'geircode/learning-dapr-base'
+        repository: 'geircode/learning-dapr-codespace-base'
         Dockerfile: '$(workingDirectoryFolder)/Dockerfile.base'
         tags: 'latest'
 
@@ -67,6 +67,6 @@ stages:
       inputs:
         command: buildAndPush
         containerRegistry: geircodeacr-geircode
-        repository: 'geircode/learning-dapr'
+        repository: 'geircode/learning-dapr-codespace'
         Dockerfile: '$(workingDirectoryFolder)/Dockerfile'
         tags: 'latest'

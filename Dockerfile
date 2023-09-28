@@ -1,6 +1,6 @@
-FROM geircodeacr.azurecr.io/learning-dapr-filecontainer:latest as filecontainer
+FROM geircodeacr.azurecr.io/learning-dapr-codespace-filecontainer:latest as filecontainer
 
-FROM geircodeacr.azurecr.io/learning-dapr-base
+FROM geircodeacr.azurecr.io/learning-dapr-codespace-base
 
 RUN apt-get update
 

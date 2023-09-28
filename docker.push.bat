@@ -1,10 +1,10 @@
 cd %~dp0
 
-docker push geircodeacr.azurecr.io/learning-dapr-base
-docker push geircodeacr.azurecr.io/learning-dapr-base-powershell
-docker push geircodeacr.azurecr.io/learning-dapr-filecontainer:latest
+docker push geircodeacr.azurecr.io/learning-dapr-codespace-base
+docker push geircodeacr.azurecr.io/learning-dapr-codespace-base-powershell
+docker push geircodeacr.azurecr.io/learning-dapr-codespace-filecontainer:latest
 
 @REM Ikke push container som inneholder PAT
-@REM docker push geircodeacr.azurecr.io/learning-dapr:latest
+@REM docker push geircodeacr.azurecr.io/learning-dapr-codespace:latest
 
 pause
