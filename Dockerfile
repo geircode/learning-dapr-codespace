@@ -82,4 +82,14 @@ RUN dos2unix /root/.bashrc
 
 WORKDIR /app
 
+# Download, make executable, and run the dotnet-install.sh script
+RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && \
+    chmod +x ./dotnet-install.sh && \
+    ./dotnet-install.sh --version latest
+
+# Download and run the Dapr install script, then initialize Dapr
+RUN wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash && \
+    dapr init
+
+
 ENTRYPOINT tail -f /dev/null
