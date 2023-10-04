@@ -88,8 +88,6 @@ RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && \
     ./dotnet-install.sh --version latest
 
 # Download and run the Dapr install script, then initialize Dapr
-RUN wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash && \
-    dapr init
-
+RUN wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
 
 ENTRYPOINT tail -f /dev/null

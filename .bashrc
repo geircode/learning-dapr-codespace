@@ -24,3 +24,5 @@ export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+
+export PATH=$PATH:/root/.dapr/bin
