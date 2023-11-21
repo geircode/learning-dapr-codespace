@@ -1,16 +1,16 @@
 version: '3.7'
 
 services:
-  learning-dapr-filecontainer:
-    image: geircodeacr.azurecr.io/learning-dapr-filecontainer:latest
+  learning-dapr-codespace-filecontainer:
+    image: geircodeacr.azurecr.io/learning-dapr-codespace-filecontainer:latest
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: learning-dapr-filecontainer-1
+    container_name: learning-dapr-codespace-filecontainer-1
     networks:
-      - learning-dapr-filecontainer-network      
+      - learning-dapr-codespace-filecontainer-network      
 
 networks:
-  learning-dapr-filecontainer-network:
-    name: learning-dapr-filecontainer-network    
+  learning-dapr-codespace-filecontainer-network:
+    name: learning-dapr-codespace-filecontainer-network    
     

@@ -8,10 +8,10 @@ docker network create -d overlay --attachable geircode_common_network
 docker-compose -f docker-compose.yml up -d
 
 @REM Copy git clone all script to the container
-docker cp clone-all.sh learning-dapr-1:/git
-docker exec learning-dapr-1 dos2unix /git/clone-all.sh
+docker cp clone-all.sh learning-dapr-codespace-1:/git
+docker exec learning-dapr-codespace-1 dos2unix /git/clone-all.sh
 
-docker run --rm geircode/string_to_hex bash string_to_hex.bash "learning-dapr-1" > vscode_remote_hex.txt
+docker run --rm geircode/string_to_hex bash string_to_hex.bash "learning-dapr-codespace-1" > vscode_remote_hex.txt
 
 set /p vscode_remote_hex=<vscode_remote_hex.txt
 

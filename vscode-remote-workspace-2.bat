@@ -5,7 +5,7 @@ docker network create -d overlay --attachable geircode_common_network
 
 docker-compose -f docker-compose.yml up -d
 
-docker run --rm geircode/string_to_hex bash string_to_hex.bash "learning-dapr-2" > vscode_remote_hex.txt
+docker run --rm geircode/string_to_hex bash string_to_hex.bash "learning-dapr-codespace-2" > vscode_remote_hex.txt
 
 set /p vscode_remote_hex=<vscode_remote_hex.txt
 

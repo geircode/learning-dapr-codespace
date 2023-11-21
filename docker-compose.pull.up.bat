@@ -8,8 +8,8 @@ git config --global credential.https://dev.azure.com.useHttpPath true
 
 docker swarm init
 
-docker rm -f learning-dapr-1
-docker rm -f learning-dapr-2
+docker rm -f learning-dapr-codespace-1
+docker rm -f learning-dapr-codespace-2
 
 docker-compose -f docker-compose.yml down --remove-orphans
 
@@ -20,4 +20,4 @@ docker-compose -f docker-compose.yml pull --no-parallel
 docker-compose -f docker-compose.yml up -d --remove-orphans
 REM wait for 1-2 seconds for the container to start
 pause
-docker exec -it learning-dapr-1 /bin/bash
+docker exec -it learning-dapr-codespace-1 /bin/bash

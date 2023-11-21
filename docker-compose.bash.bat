@@ -1,1 +1,1 @@
-docker exec -it learning-dapr-1 /bin/bash
+docker exec -it learning-dapr-codespace-1 /bin/bash

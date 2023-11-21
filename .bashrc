@@ -18,3 +18,11 @@ alias l='ls $LS_OPTIONS -lA'
 # alias cp='cp -i'
 alias tf='terraform'
 alias k='kubectl'
+
+
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+
+export PATH=$PATH:/root/.dapr/bin
