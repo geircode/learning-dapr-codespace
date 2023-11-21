@@ -24,22 +24,23 @@ RUN ls -al
 RUN tar --strip-components=1 -xvzf docker.tgz -C /usr/local/bin
 
 # Get the Terraform files. Get newer version from: https://www.terraform.io/downloads.html
-RUN unzip -q terraform_linux_amd64.zip -d /usr/bin && \
+RUN unzip -q terraform_linux_amd64.zip -d /usr/local/bin && \
     terraform --version
 
-RUN unzip -q tflint.zip -d /usr/bin && \
+RUN unzip -q tflint.zip -d /usr/local/bin && \
     tflint --version
 
 # kubectl
 RUN chmod +x ./kubectl && \
-    mv ./kubectl /usr/local/bin
+    mv ./kubectl /usr/local/bin &&\
+    kubectl version --client --output=json | jq -r '.clientVersion.gitVersion'
 
 ##############################################
 ### kubelogin
 #############################################
 
-RUN unzip -q kubelogin.zip -d /usr/bin && \
-    kubelogin version && \
+RUN unzip -q kubelogin.zip -d /usr/local/bin && \
+    kubelogin --version && \
     az aks install-cli
 
 ################################################################################
@@ -57,6 +58,18 @@ RUN mv ./kubectx /usr/local/bin &&\
     chmod +x /usr/local/bin/kubectx &&\
     chmod +x /usr/local/bin/kubens
 
+
+
+################################################################################
+### Dapr
+################################################################################
+
+##############################################
+### Dapr
+#############################################
+RUN echo "Download =>  https://raw.githubusercontent.com/dapr/cli/master/install/install.sh" &&\
+    curl -fL https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -o install-dapr.sh &&\
+    bash install-dapr.sh
 
 ################################################################################
 ### Add dotnet-certificate-tool

@@ -1,7 +1,7 @@
 # To avoid storing the API key in the final image history, we use multibuild and then delete the temporary build image
 FROM python:3.10-slim-bullseye as python_base
 RUN apt-get update
-RUN apt-get install -y git dos2unix unzip wget curl iputils-ping
+RUN apt-get install -y git dos2unix unzip wget curl iputils-ping jq
 
 # WORKDIR /tmp
 # RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb

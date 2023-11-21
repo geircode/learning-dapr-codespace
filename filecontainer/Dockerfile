@@ -57,9 +57,9 @@ RUN curl -fL https://fluxcd.io/install.sh -o install-flux.sh
 # ENV VERSION "0.6.3"
 # Get latest release tag for a GitHub repository
 RUN echo "VERSION=$(curl -s https://api.github.com/repos/ahmetb/kubectx/releases/latest | jq -r ".tag_name")"
-RUN export VERSION=$(curl -s https://api.github.com/repos/ahmetb/kubectx/releases/latest | jq -r ".tag_name") && \
-    curl -L -o kubectx https://raw.githubusercontent.com/ahmetb/kubectx/v$VERSION/kubectx &&\
-	curl -L -o kubens https://raw.githubusercontent.com/ahmetb/kubectx/v$VERSION/kubens
+RUN export VERSION=$(curl -s https://api.github.com/repos/ahmetb/kubectx/releases/latest | jq -r ".tag_name") &&\
+    curl -L -o kubectx https://raw.githubusercontent.com/ahmetb/kubectx/$VERSION/kubectx &&\
+	curl -L -o kubens https://raw.githubusercontent.com/ahmetb/kubectx/$VERSION/kubens
 
 RUN ls -al
 
